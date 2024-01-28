@@ -22,7 +22,7 @@ const Auth = () => {
         <div className="container">
           <main className="auth-container">
             <section className="auth-image">
-              <img src="../src/assets/images/image 220.png" alt="" />
+              <img src="/src/assets/images/image 220.png" alt="" />
             </section>
             <section className="auth-main">
               <div className="auth-title">
@@ -33,7 +33,7 @@ const Auth = () => {
                   <h1>Creado para ti y tu familia</h1>
                 </div>
                 <div className="auth-title__img">
-                  <img src="../src/assets/images/image 220.png" alt="" />
+                  <img src="/src/assets/images/image 220.png" alt="" />
                 </div>
               </div>
               <hr className="divider" />
