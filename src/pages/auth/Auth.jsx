@@ -1,18 +1,44 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../core/context/AuthContext';
+import { useForm } from '../../core/hooks/useForm';
 import Header from '../../core/components/Header/Header';
 import Footer from '../../core/components/Footer/Footer';
 import './auth.scss';
 
+const formValidations = {
+  document: [(value) => value.length >= 1, 'El documento es obligatorio.'],
+  phone: [(value) => value.length >= 1, 'El telefono es obligatorio.'],
+};
+
 const Auth = () => {
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
-
+  const [formSubmmited, setFormSubmmited] = useState(false);
+  const {
+    document,
+    phone,
+    onInputChange,
+    documentValid,
+    phoneValid,
+    isFormValid,
+  } = useForm(
+    {
+      document: '',
+      phone: '',
+    },
+    formValidations
+  );
   const onSubmit = async (event) => {
     event.preventDefault();
-    await login();
-    navigate('/plans');
+    setFormSubmmited(true);
+
+    if (!isFormValid) {
+      return;
+    } else {
+      await login();
+      navigate('/plans');
+    }
   };
 
   return (
@@ -42,22 +68,42 @@ const Auth = () => {
                   Tú eliges cuánto pagar. Ingresa tus datos, cotiza y recibe
                   nuestra asesoría, 100% online.
                 </p>
-                <div className="input-form-content">
-                  <select name="das" id="">
-                    <option value="1">DNI</option>
-                    <option value="2">C.E.</option>
-                  </select>
+                <div>
+                  <div className="input-form-content">
+                    <select name="das" id="">
+                      <option value="1">DNI</option>
+                      <option value="2">C.E.</option>
+                    </select>
+                    <input
+                      className="input-form"
+                      type="number"
+                      placeholder="Nro. de documento"
+                      name="document"
+                      value={document}
+                      onChange={onInputChange}
+                    />
+                  </div>
+                  {documentValid && formSubmmited && (
+                    <div className="error-message">
+                      <p>{documentValid} </p>
+                    </div>
+                  )}
+                </div>
+                <div>
                   <input
                     className="input-form"
                     type="number"
-                    placeholder="Nro. de documento"
+                    placeholder="Celular"
+                    name="phone"
+                    value={phone}
+                    onChange={onInputChange}
                   />
+                  {phoneValid && formSubmmited && (
+                    <div className="error-message">
+                      <p>{phoneValid} </p>
+                    </div>
+                  )}
                 </div>
-                <input
-                  className="input-form"
-                  type="number"
-                  placeholder="Celular"
-                />
 
                 <div className="auth-form__conditions">
                   <label className="control control-checkbox text-black-400-16">

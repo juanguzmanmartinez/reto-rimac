@@ -199,8 +199,6 @@
 }
 
 .divider {
-  // stroke-width: 1px;
-  // stroke: var(--Grey-grey-30, #ccd1ee);
   border-top: 1px solid #ccd1ee;
   width: 100%;
   margin: 24px auto;
@@ -224,4 +222,9 @@
   border-radius: 4px;
   width: 148px;
   text-align: center;
+}
+
+.error-message {
+  color: #f01818;
+  margin-top: 4px;
 }
