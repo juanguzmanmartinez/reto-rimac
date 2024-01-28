@@ -1,0 +1,33 @@
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.carousel {
+  display: flex;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease;
+  width: 100%;
+
+  @media (min-width: 680px) {
+    gap: 32px;
+  }
+}
+.controls {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+  &__button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+}

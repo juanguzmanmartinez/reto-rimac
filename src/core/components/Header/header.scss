@@ -1,0 +1,43 @@
+.header {
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 56px;
+
+  .text-call {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      margin-right: 8px;
+      height: 20px;
+      margin-bottom: 4px;
+    }
+    p {
+      display: none;
+    }
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+@media (min-width: 769px) {
+  .header {
+    padding: 14px 0;
+    height: 64px;
+
+    .text-call {
+      p {
+        display: block;
+        margin-right: 16px;
+      }
+      a {
+        font-size: 18px;
+      }
+    }
+  }
+}

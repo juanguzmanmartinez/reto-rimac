@@ -1,0 +1,15 @@
+@import '/src/assets/scss/_general';
+.back-button {
+  @include button-reset;
+  color: $blue;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  align-self: flex-start;
+  width: 82px;
+  span {
+    margin-left: 8px;
+    font-family: br-sonoma-700;
+    line-height: 18px;
+  }
+}

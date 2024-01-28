@@ -1,0 +1,75 @@
+@import './fonts.scss';
+@import './custom.scss';
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  font-family: br-sonoma-400;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font-family: br-sonoma-400;
+  font-size: 16px;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  font-size: 14px;
+}
+
+h1 {
+  font-family: br-sonoma-700;
+  font-size: 28px;
+  @media (max-width: 768px) {
+    font-size: 32px;
+  }
+}
+h2 {
+  font-family: br-sonoma-600;
+}
+h3 {
+  font-family: br-sonoma-500;
+}
+h4 {
+  font-family: br-sonoma-400;
+}
+h5 {
+  font-family: br-sonoma-300;
+}
+h6 {
+  font-family: br-sonoma-200;
+}

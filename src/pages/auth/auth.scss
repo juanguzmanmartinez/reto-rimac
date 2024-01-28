@@ -1,0 +1,131 @@
+@import '/src/assets/scss/_general';
+
+.auth {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background: linear-gradient(235deg, $aqua 0%, hsla(0, 0%, 100%, 0) 25%);
+    z-index: -1;
+    top: 0;
+    right: 0;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background: linear-gradient(390deg, $purple 0%, hwb(0 100% 0% / 0) 25%);
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+  }
+  &-container {
+    display: flex;
+    padding: 0 24px 64px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    gap: 12px;
+
+    .auth-image {
+      grid-area: image;
+      display: none;
+
+      img {
+        object-fit: cover;
+        border-radius: 8px;
+      }
+    }
+
+    .auth-main {
+      .auth-title {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+
+        &__text {
+          display: flex;
+          flex-direction: column;
+          width: 60%;
+        }
+        &__img {
+          width: 40%;
+
+          img {
+            border-radius: 16px;
+          }
+        }
+      }
+      .auth-form {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        &__conditions {
+        }
+      }
+    }
+  }
+}
+
+.input-form-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (min-width: 769px) {
+  .auth {
+    &::after {
+      bottom: 106px;
+    }
+    &-container {
+      display: flex;
+      padding: 48px 0;
+      column-gap: 128px;
+      height: calc(100vh - 170px);
+
+      .auth-image {
+        width: 70%;
+        display: block;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .auth-main {
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        hr {
+          display: none;
+        }
+
+        .auth-title {
+          &__text {
+            width: 100%;
+            h1 {
+              margin-top: 10px;
+            }
+          }
+          &__img {
+            display: none;
+
+            img {
+              border-radius: 16px;
+            }
+          }
+        }
+        .auth-form {
+          &__conditions {
+            margin-top: 100px;
+          }
+        }
+      }
+    }
+  }
+}
